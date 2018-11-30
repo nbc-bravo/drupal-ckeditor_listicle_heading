@@ -1,0 +1,10 @@
+{
+  "name": "drupal/ckeditor_listicle_heading",
+  "type": "drupal-module",
+  "description": "A CKEditor plugin for Drupal 8 to create headings preceded by a number and a dot.",
+  "homepage": "https://www.drupal.org/project/ckeditor_listicle_heading",
+  "license": "GPL-2.0+",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/ckeditor_listicle_heading"
+  }
+}
