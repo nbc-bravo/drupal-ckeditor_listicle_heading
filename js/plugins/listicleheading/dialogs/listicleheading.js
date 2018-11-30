@@ -64,9 +64,6 @@ CKEDITOR.dialog.add('listicleheadingDialog', function (editor) {
         id: 'number',
         label: lang.dialogListicleHeadingNumber,
 
-        // Validation checking whether the field is not empty.
-        validate: CKEDITOR.dialog.validate.notEmpty("Listicle heading number field cannot be empty"),
-
         // Called by the main setupContent call on dialog initialization.
         setup: function (element) {
           if (element.getChild(0) !== null) {
@@ -84,19 +81,22 @@ CKEDITOR.dialog.add('listicleheadingDialog', function (editor) {
           if (element.getChild(0) !== null) {
             var number = this.getValue();
 
-            // Append a new span for the number.
-            var span = editor.document.createElement("span");
-            span.setText(number);
-            span.setAttribute("class", "number");
-            element.append(span);
-            element.getChild(0).append(span);
+            if (number.length) {
+              element.addClass('has-number');
+              // Append a new span for the number.
+              var span = editor.document.createElement("span");
+              span.setText(number);
+              span.setAttribute("class", "number");
+              element.append(span);
+              element.getChild(0).append(span);
 
-            // Append a new span separator node.
-            var separator = editor.document.createElement("span");
-            separator.setText(". ");
-            separator.setAttribute("class", "separator");
-            element.append(separator);
-            element.getChild(0).append(separator);
+              // Append a new span separator node.
+              var separator = editor.document.createElement("span");
+              separator.setText(". ");
+              separator.setAttribute("class", "separator");
+              element.append(separator);
+              element.getChild(0).append(separator);
+            }
           }
         }
       },
